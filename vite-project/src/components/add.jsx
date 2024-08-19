@@ -22,8 +22,6 @@ function Add(props) {
             <input type='text' placeholder='Enter amount' onChange={(event) => setAmount(event.target.value)} />
             <br></br>
             <select onChange={(event) => setTransactionType(event.target.value)}>
-                
-                <option>Income</option>
                 <option>Income</option>
                 <option>Expense</option>
             </select>

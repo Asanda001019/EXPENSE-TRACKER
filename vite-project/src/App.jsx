@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import Home from './components/home';
+import Login from './components/login';
 import Add from './components/add';
 import './App.css'
 import DisplayTransaction from './components/displayTransaction';
-
-
+import SignUp from './components/signUp';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NoPageFound from './components/noPageFound';
 
 function App() {
 
@@ -19,12 +22,29 @@ const addTransact =(transactionItem, amount, transactionType)=>{
 
   return (
 
+    <Router>
     <div className='container'>
-      <DisplayTransaction transaction={transaction}/>
-    
- <Add  addTransact={addTransact}/>
 
+      <Switch>
+        <Route exact path='./'>
+        <Login/>
+
+        </Route>
+
+        <Route path='/home'>
+          <Home addTransact={addTransact} transaction={transaction}/>
+        </Route>
+
+        <Route path='/signUp'>
+          <SignUp/>
+        </Route>
+
+        <Route path='*'>
+          <NoPageFound/>
+        </Route>
+      </Switch> 
     </div>
+    </Router>
   )
 }
 
