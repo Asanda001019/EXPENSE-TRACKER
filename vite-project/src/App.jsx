@@ -1,29 +1,28 @@
 import { useState } from 'react'
 import Add from './components/add';
 import './App.css'
+import DisplayTransaction from './components/displayTransaction';
 
 
 
 function App() {
 
+const [transaction ,setTransaction] =useState([]);
  
+const addTransact =(transactionItem, amount, transactionType)=>{
 
+  setTransaction ((transaction)=>[...transaction,{transactionItem:transactionItem, amount:amount, transactionType:transactionType}])
 
+  console.log(transaction)
 
+}
 
-  const [transaction ,setTransaction] =useState([]);
-  
-  const addTransact = (transactionItem, amount, transactionType) => {
- 
-  const [transaction ,setTransaction] =useState([]);
-    setTransaction[(transaction)=>[...transaction]]
-   
-    }
   return (
 
     <div className='container'>
+      <DisplayTransaction transaction={transaction}/>
     
- <Add/>
+ <Add  addTransact={addTransact}/>
 
     </div>
   )
