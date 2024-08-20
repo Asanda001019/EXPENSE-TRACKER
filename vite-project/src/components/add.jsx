@@ -1,19 +1,15 @@
 import { useState } from "react";
 
-
 function Add(props) {
 
     const [transactionItem, setTransactionItem] = useState("");
     const [amount, setAmount] = useState("");
     const [transactionType, setTransactionType] = useState("");
 
-
-    
     const addTransact = (()=> {
         props.addTransact (transactionItem, amount, transactionType)
     })
     
-
     return (
         <div>
             <h1>Add a new transaction</h1>

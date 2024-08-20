@@ -6,6 +6,7 @@ function Home (props){
   return (
     <div>
         <DisplayTransaction transaction={props.transaction}/>
+        
         <Add addTransact={props.addTransact}/>
     </div>
   )

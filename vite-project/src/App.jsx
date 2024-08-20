@@ -5,7 +5,8 @@ import Add from './components/add';
 import './App.css'
 import DisplayTransaction from './components/displayTransaction';
 import SignUp from './components/signUp';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoPageFound from './components/noPageFound';
 
 function App() {
@@ -22,29 +23,18 @@ const addTransact =(transactionItem, amount, transactionType)=>{
 
   return (
 
-    <Router>
     <div className='container'>
 
-      <Switch>
-        <Route exact path='./'>
-        <Login/>
-
-        </Route>
-
-        <Route path='/home'>
-          <Home addTransact={addTransact} transaction={transaction}/>
-        </Route>
-
-        <Route path='/signUp'>
-          <SignUp/>
-        </Route>
-
-        <Route path='*'>
-          <NoPageFound/>
-        </Route>
-      </Switch> 
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/home' element={<Home addTransact={addTransact} transaction={transaction}/>}/>
+        <Route path='/signUp' element={<SignUp/>}/>
+        <Route path='*' element={<NoPageFound/>}/>
+      </Routes> 
+      </BrowserRouter>
     </div>
-    </Router>
+    
   )
 }
 

@@ -1,18 +1,18 @@
 import React from 'react'
-import {Link, useHistory} from "react-router-dom"
+import {Link ,useNavigate} from "react-router-dom"
 
 function Login (){
 
-const goToHomePage =(()=>{
-  history.push("/home")
-})
+const goToHomePage =useNavigate()
+  
+
 
   return (
     <div>
         
-        <h1>Lodin Page</h1>
+        <h1>Login Page</h1>
 
-        <button onClick={goToHomePage}>Go to home page</button>
+        <button onClick={()=>goToHomePage("/home")}> Go to home page</button>
 <br></br>
         <Link to="/signUp">Dont't have an account: Sign Up</Link>
         
